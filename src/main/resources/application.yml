@@ -1,0 +1,30 @@
+server:
+  port: 6872
+  
+# service id
+#spring:
+#  application:
+#    name: Internationalization-Service
+
+# Eureka server publishing info
+
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+#      
+      
+#Connection Provider to work with HikariCP
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/internationalization?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root    
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 100
+      idle-timeout: 60000
+      
+
+
