@@ -1,7 +1,8 @@
 package com.realcoderz.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -50,9 +51,9 @@ public class Product implements Serializable {
     private Double price;
 
     @JsonFormat(shape = Shape.STRING,pattern="yyyy-MM-dd'T'HH:mm:ss:SSSSSS")
-    @Column(name = "create_at",nullable=false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createAt;
+    @Column(name = "create_at",columnDefinition = "TIMESTAMP")
+    //@Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime createAt;
 
     @JsonDeserialize(using = NumberFormatDeserializer.class)
     @JsonFormat(shape = Shape.STRING)
@@ -66,7 +67,7 @@ public class Product implements Serializable {
 
     @PrePersist
     private void onCreate() {
-    	createAt=new Date();
+    	createAt=LocalDateTime.now();
     }
     
       

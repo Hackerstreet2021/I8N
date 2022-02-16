@@ -1,8 +1,8 @@
 package com.realcoderz.controller;
 
 import java.text.DateFormat;
-import java.time.LocalDate;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,8 +34,15 @@ public class PageController {
 
 		DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT,
 				LocaleContextHolder.getLocale());
+		
+//		
+//		SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyy hh:mm:ss a");	
+//		String strDate = sdf.format(new Date());
+		
+		TimeZone timezone=TimeZone.getTimeZone("IST");
+		df.setTimeZone(timezone);		
 		String strDate = df.format(new Date());
-
+		
 		LOGGER.info("Formatting Date according to particular Locale");
 
 		
