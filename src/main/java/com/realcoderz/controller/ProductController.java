@@ -159,7 +159,7 @@ public class ProductController {
 
 		OffsetDateTime timeUtc = dateTime.atOffset(ZoneOffset.UTC);
 		OffsetDateTime offsetTime = timeUtc.withOffsetSameInstant(zone);
-
+        
 		return dateTimeFormatter.format(offsetTime);
 	}
 
